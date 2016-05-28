@@ -13,7 +13,51 @@ long double NumericalPeriodSpline::getValue() {
     return this->splineFunctionPointValue;
 }
 
+void NumericalPeriodSpline::setN(int rowsAmount) {
+    this->n=rowsAmount;
+}
 
+
+void NumericalPeriodSpline::displayMatrixElement(MainWindow* ui,long double element) {
+
+    QString tekst;
+
+    char intervalElementString[100];
+    sprintf(intervalElementString,"%.21LE ",element);
+
+    ui->displayMatrixElement(tekst.fromStdString(intervalElementString));
+
+}
+
+void NumericalPeriodSpline::displayNewLine(MainWindow* ui){
+    QString tekst;
+    ui->displayMatrixElement(tekst.fromStdString("\n"));
+}
+
+
+void NumericalPeriodSpline::displayMatrix(MainWindow* ui){
+    ui->clearMatrixTextBrowser();
+    for(int j=0;j<matrixColumnsAmount;j++){
+        for(int i=0;i<n;i++){
+            this->displayMatrixElement(ui,this->matrix[j][i]);
+        }
+        this->displayNewLine(ui);
+    }
+}
+
+
+void NumericalPeriodSpline::displayValue(MainWindow* ui){
+
+    QString tekst;
+
+    char valueString[100];
+    sprintf(valueString,"%.21LE",this->splineFunctionPointValue);
+
+    ui->displayValue(tekst.fromStdString(valueString));
+
+}
+
+/*
 void NumericalPeriodSpline::displayMatrix(){
     printf("\n\n");
     for(int j=0;j<matrixColumnsAmount;j++){
@@ -34,7 +78,7 @@ void NumericalPeriodSpline::setN(int rowsAmount) {
     this->n=rowsAmount;
 }
 
-
+*/
 void NumericalPeriodSpline::performValueComputation(int n, long double x[],long double f[],long double xx){
 
     try{

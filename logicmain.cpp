@@ -22,9 +22,9 @@ void logicfunction(MainWindow* ui,string filepath,bool ifNumeric){
         if(ifNumeric){
             numericalPeriodSpline.setN(dataReader.n);
             numericalPeriodSpline.periodsplinecoeffns(dataReader.n,dataReader.xLD,dataReader.fLD);
-            numericalPeriodSpline.displayMatrix();
+            numericalPeriodSpline.displayMatrix(ui);
             numericalPeriodSpline.periodsplinevalue(dataReader.n,dataReader.xLD,dataReader.fLD,dataReader.xxLD);
-            numericalPeriodSpline.displayValue();
+            numericalPeriodSpline.displayValue(ui);
 
         }
         else{

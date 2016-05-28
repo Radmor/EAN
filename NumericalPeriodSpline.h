@@ -8,6 +8,8 @@
 #define EAN_NUMERICALPERIODSPLINE_H
 
 #define maxArrayLength 1000
+#include "mainwindow.h"
+#include <QString>
 
 class NumericalPeriodSpline{
 private:
@@ -23,8 +25,10 @@ public:
     void periodsplinecoeffns(int n, long double x[],long double f[]);
 
     long double getValue();
-    void displayMatrix();
-    void displayValue();
+    void displayMatrix(MainWindow* ui);
+    void displayMatrixElement(MainWindow *ui,long double element);
+    void displayValue(MainWindow* ui);
+    void displayNewLine(MainWindow* ui);
     void tests();
     void test1();
     /*
