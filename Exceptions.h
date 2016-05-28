@@ -38,5 +38,19 @@ public:
     }
 };
 
+class InvalidFileFormat: public exception{
+public:
+    const char * what() const throw(){
+        return "File format is invalid!";
+    }
+};
+
+class FileNotExists:public exception{
+public:
+    const char * what() const throw(){
+        return "File format is invalid!";
+    }
+};
+
 
 #endif //EAN_EXCEPTIONS_H

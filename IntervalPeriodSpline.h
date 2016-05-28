@@ -1,0 +1,8 @@
+//
+// Created by ph on 28.05.16.
+//
+
+#ifndef EAN_INTERVALPERIODSPLINE_H
+#define EAN_INTERVALPERIODSPLINE_H
+
+#endif //EAN_INTERVALPERIODSPLINE_H

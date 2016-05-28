@@ -1,12 +1,13 @@
 cmake_minimum_required(VERSION 3.3)
 project(EAN)
 
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -m64 ")
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 
-set(SOURCE_FILES main.cpp NumericalPeriodSpline.cpp NumericalPeriodSpline.h Exceptions.h Utilities.cpp Utilities.h DataReader.cpp DataReader.h)
+set(SOURCE_FILES main.cpp NumericalPeriodSpline.cpp NumericalPeriodSpline.h Exceptions.h Utilities.cpp Utilities.h DataReader.cpp DataReader.h IntervalPeriodSpline.cpp IntervalPeriodSpline.h)
 
 
 set(Boost_INCLUDE_DIR /usr/local/boost)

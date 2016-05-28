@@ -125,7 +125,6 @@ long double NumericalPeriodSpline::periodsplinevalue(int n, long double x[],long
                 d[i]=6*((f[i+1]-v)/y-(v-f[i-1])/z)/(y+z);
             }
             if(n>2){
-                printf("jestem\n");
                 u[1]=2;
                 c[2]=c[2]/2;
                 q[2]=-b[n]/2;
@@ -294,7 +293,6 @@ void NumericalPeriodSpline::periodsplinecoeffns(int n, long double *x, long doub
                     d[i]=6*((f[i+1]-v)/y-(v-f[i-1])/z)/(y+z);
                 }
                 if(n>2){
-                    //printf("jestem\n");
                     u[1]=2;
                     c[2]=c[2]/2;
                     q[2]=-b[n]/2;

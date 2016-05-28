@@ -1,34 +1,36 @@
+#include <cstddef>
 #include <iostream>
 #include <mpreal.h>
 #include <Interval.h>
 #include <NumericalPeriodSpline.h>
-#include <Exceptions.h>
+#include <DataReader.h>
+#include <Utilities.h>
+
 using namespace std;
 
 int main() {
 
+    DataReader dataReader;
+    NumericalPeriodSpline numericalPeriodSpline;
+
+    try{
+        dataReader.dataread("/home/ph/Dokumenty/EAN/data4.txt");
+
+        numericalPeriodSpline.setN(dataReader.n);
+        numericalPeriodSpline.performValueComputation(dataReader.n,dataReader.x,dataReader.f,dataReader.xx);
+        numericalPeriodSpline.performCoeffnsComputation(dataReader.n,dataReader.x,dataReader.f);
+
+        numericalPeriodSpline.displayValue();
+        numericalPeriodSpline.displayMatrix();
+    }
+    catch(exception &e){
+        displayException(e.what());
+    }
+
+
+
 
 /*
-    int n=6;
-    long double x[7]={17,20,23,24,25,27,27.7};
-    long double f[7]={4.5,7.0,6.1,5.6,5.8,5.2,4.5};
-    long double xx=23.5;
-*/
-
-    /*
-    int n=1;
-    long double x[]={0,1};
-    long double f[]={1,1};
-    long double xx=0.5;
-     */
-
-    int n=2;
-    long double x[]={0,1,2};
-    long double f[]={1,0,1};
-    long double xx=1;
-
-
-
     NumericalPeriodSpline numericalPeriodSpline;
     numericalPeriodSpline.setN(n);
 
@@ -39,6 +41,7 @@ int main() {
     numericalPeriodSpline.displayMatrix();
 
     //numericalPeriodSpline.tests();
+    */
 
     return 0;
 }
