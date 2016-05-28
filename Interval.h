@@ -110,6 +110,7 @@ inline Interval<T> Interval<T>::operator =(const Interval<T>& i) {
 	return *this;
 }
 
+
 template<typename T>
 inline Interval<T> Interval<T>::operator +(const Interval<T>& y) {
 	Interval<T> x(this->a, this->b);
@@ -1278,6 +1279,7 @@ Interval<T> DISqr(const Interval<T>& x) {
 	}
 	return r;
 }
+
 
 //The explicit instantiation part
 template class Interval<long double>;

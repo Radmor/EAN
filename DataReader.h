@@ -13,14 +13,23 @@
 #include <boost/regex.hpp>
 #include <regex>
 
+#include <cstddef>
+#include <mpreal.h>
+#include <Interval.h>
+
 using namespace std;
+using namespace interval_arithmetic;
 
 class DataReader{
 public:
     int n;
-    long double x[maxArrayLength];
-    long double f[maxArrayLength];
-    long double xx;
+    long double xLD[maxArrayLength];
+    long double fLD[maxArrayLength];
+    long double xxLD;
+
+    Interval<long double> xINT[maxArrayLength];
+    Interval<long double> fINT[maxArrayLength];
+    Interval<long double> xxINT;
 
     int dataread(string pathName);
     void displayOpeningError();

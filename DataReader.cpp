@@ -38,8 +38,9 @@ int DataReader::dataread(string pathName){
             while(!ss.eof()) {
                 string liczba;
                 getline(ss, liczba, ' ');
+                this->xINT[i]=Interval<long double>::IntRead(liczba);
                 stringstream convertToLD(liczba);
-                convertToLD >> this->x[i];
+                convertToLD >> this->xLD[i];
                 i++;
             }
         }
@@ -55,8 +56,9 @@ int DataReader::dataread(string pathName){
             while(!ss.eof()) {
                 string liczba;
                 getline(ss, liczba, ' ');
+                this->fINT[i]=Interval<long double>::IntRead(liczba);
                 stringstream convertToLD(liczba);
-                convertToLD >> this->f[i];
+                convertToLD >> this->fLD[i];
                 i++;
             }
 
@@ -69,8 +71,9 @@ int DataReader::dataread(string pathName){
         regex xxLineRegex("[-+]?(\\d*[.])?\\d+");
 
         if(getline(file,xxLine) && regex_match(xxLine, match,xxLineRegex)) {
+            this->xxINT=Interval<long double>::IntRead(xxLine);
             stringstream convertToLD(xxLine);
-            convertToLD >> this->xx;
+            convertToLD >> this->xxLD;
         }
         else{
             throw InvalidFileFormat();
