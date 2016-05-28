@@ -4,6 +4,8 @@
 
 #include "IntervalPeriodSpline.h"
 
+#include "mainwindow.h"
+
 /*
 bool operator<(Interval a,Interval b){
     return a.a<b.a && a.b<b.b;
@@ -38,25 +40,43 @@ Interval<long double> IntervalPeriodSpline::getValue() {
     return this->splineFunctionPointValue;
 }
 
-void IntervalPeriodSpline::displayIntervalElement(Interval<long double> interval) {
-    printf("[%.21LE, %.21LE]",interval.a,interval.b);
+void IntervalPeriodSpline::displayIntervalElement(MainWindow* ui,Interval<long double> interval) {
+
+    QString tekst;
+
+    char intervalElementString[100];
+    sprintf(intervalElementString,"[%.21LE, %.21LE] ",interval.a,interval.b);
+
+    ui->displayMatrixElement(tekst.fromStdString(intervalElementString));
 
 }
 
+void IntervalPeriodSpline::displayNewLine(MainWindow* ui){
+    QString tekst;
+    ui->displayMatrixElement(tekst.fromStdString("\n"));
+}
 
-void IntervalPeriodSpline::displayMatrix(){
-    printf("\n\n");
+
+void IntervalPeriodSpline::displayMatrix(MainWindow* ui){
+    ui->clearMatrixTextBrowser();
     for(int j=0;j<matrixColumnsAmount;j++){
         for(int i=0;i<n;i++){
-            displayIntervalElement(this->matrix[j][i]);
+            this->displayIntervalElement(ui,this->matrix[j][i]);
         }
-        printf("\n");
+        this->displayNewLine(ui);
     }
 }
 
 
-void IntervalPeriodSpline::displayValue(){
-    printf("[%.21LE, %.21LE]",this->splineFunctionPointValue.a,this->splineFunctionPointValue.b);
+void IntervalPeriodSpline::displayValue(MainWindow* ui){
+
+    QString tekst;
+
+    char valueString[100];
+    sprintf(valueString,"[%.21LE, %.21LE]",this->splineFunctionPointValue.a,this->splineFunctionPointValue.b);
+
+    ui->displayValue(tekst.fromStdString(valueString));
+
 }
 
 void IntervalPeriodSpline::setN(int rowsAmount) {
