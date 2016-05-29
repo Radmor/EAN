@@ -23,7 +23,7 @@ void NumericalPeriodSpline::displayMatrixElement(MainWindow* ui,long double elem
     QString tekst;
 
     char intervalElementString[100];
-    sprintf(intervalElementString,"%.21LE ",element);
+    sprintf(intervalElementString,"%.21LE\t",element);
 
     ui->displayMatrixElement(tekst.fromStdString(intervalElementString));
 

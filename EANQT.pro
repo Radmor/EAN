@@ -41,3 +41,6 @@ LIBS += /usr/lib/x86_64-linux-gnu/libmpfr.a
 LIBS += /usr/lib/x86_64-linux-gnu/libgmp.a
 INCLUDEPATH += /usr/include
 
+RESOURCES += \
+    myresources.qrc
+

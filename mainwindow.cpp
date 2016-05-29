@@ -11,6 +11,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle("Wyznaczanie wartości i współczynników okresowej funkcji sklejanej trzeciego stopnia");
+    QPixmap folderPixmap("/home/ph/Dokumenty/EAN/icons/folder.ico");
+    QIcon folderIcon(folderPixmap);
+    //this->pushButton->setIcon(folderIcon);
+
 }
 
 MainWindow::~MainWindow()
@@ -63,6 +67,16 @@ void MainWindow::clearMatrixTextBrowser(){
 void MainWindow::on_pushButton_2_clicked()
 {
     QString filepath=ui->textBrowser->toPlainText();
-    bool ifNumeric=0;
+
+    bool ifNumeric;
+
+    if(ui->radioButton->isChecked()){
+        ifNumeric=true;
+    }
+    else{
+        ifNumeric=false;
+
+    }
+
     logicfunction(this,filepath.toStdString(),ifNumeric);
 }

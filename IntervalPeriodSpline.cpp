@@ -45,7 +45,7 @@ void IntervalPeriodSpline::displayIntervalElement(MainWindow* ui,Interval<long d
     QString tekst;
 
     char intervalElementString[100];
-    sprintf(intervalElementString,"[%.21LE, %.21LE] ",interval.a,interval.b);
+    sprintf(intervalElementString,"[%.21LE, %.21LE]\t",interval.a,interval.b);
 
     ui->displayMatrixElement(tekst.fromStdString(intervalElementString));
 
