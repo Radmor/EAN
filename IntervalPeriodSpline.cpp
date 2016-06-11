@@ -43,11 +43,10 @@ Interval<long double> IntervalPeriodSpline::getValue() {
 void IntervalPeriodSpline::displayIntervalElement(MainWindow* ui,Interval<long double> interval) {
 
     QString tekst;
+    string a, b;
+    interval.IEndsToStrings(a, b);
 
-    char intervalElementString[100];
-    sprintf(intervalElementString,"[%.21LE, %.21LE]\t",interval.a,interval.b);
-
-    ui->displayMatrixElement(tekst.fromStdString(intervalElementString));
+    ui->displayMatrixElement(tekst.fromStdString(string("[") + a + string(", ") + b + string("]\t")));
 
 }
 
@@ -73,9 +72,12 @@ void IntervalPeriodSpline::displayValue(MainWindow* ui){
     QString tekst;
 
     char valueString[100];
-    sprintf(valueString,"[%.21LE, %.21LE]",this->splineFunctionPointValue.a,this->splineFunctionPointValue.b);
 
-    ui->displayValue(tekst.fromStdString(valueString));
+    string a, b;
+    splineFunctionPointValue.IEndsToStrings(a, b);
+
+
+    ui->displayValue(tekst.fromStdString(string("[") + a + string(", ") + b + string("]")));
 
 }
 
